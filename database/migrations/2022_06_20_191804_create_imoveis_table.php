@@ -13,11 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('imovel', function (Blueprint $table) {
+        Schema::create('imoveis', function (Blueprint $table) {
             $table->id();
-            $table->string('nome',256);
-            $table->year('ano_criacao');
+            $table->string('titulo',65);
+            $table->string('cidade',65);
+            $table->boolean('oculto');
             $table->double('valor',8,2);
+            $table->string('endereco',256);
+            $table->string('googlemaps',2000);
+            $table->string('descricao',600);
             $table->timestamps();
         });
     }
@@ -29,6 +33,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('imovel');
+        Schema::dropIfExists('imoveis');
     }
 };
