@@ -3,6 +3,6 @@
 
 @section('content')
     <div>
-        <h2>Pagina para alugar</h2>
+        <h2>Pagina para Vender</h2>
     </div>
 @endsection
