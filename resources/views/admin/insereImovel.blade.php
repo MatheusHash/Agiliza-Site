@@ -1,5 +1,5 @@
 {{--directory layouts, archive app.blade.php--}}
-@extends('layouts.app')
+@extends('layouts.navigation')
 
 @section('content')
     <div>
