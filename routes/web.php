@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/',       [\App\Http\Controllers\HomeController::class,  'index'])->name('home');
 Route::get('/alugar', [\App\Http\Controllers\AlugaController::class, 'index'])->name('alugar');
 Route::get('/vender', [\App\Http\Controllers\VendeController::class, 'index'])->name('vender');
+Route::get('/alto-padrao', [\App\Http\Controllers\AltoPadraoController::class, 'index'])->name('alto-padrao');
 
 /*
  * Fim das rotas Controllers
@@ -23,7 +24,7 @@ Route::middleware('auth')->group(function (){ //Middleware para autenticar o usu
         /*
          * Rotas com controllers */
         Route::get('/dashboard', [\App\Http\Controllers\admin\DashboardController::class, 'index'])->name('dashboard');
-        Route::get('/insereImovel', [App\Http\Controllers\admin\InserirImovel::class,    'index'])->name('insereImovel');
+        Route::get('/insereImovel', [App\Http\Controllers\admin\InserirImovel::class,     'index'])->name('insereImovel');
     });
 });
 
