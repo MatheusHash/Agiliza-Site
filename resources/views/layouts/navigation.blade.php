@@ -1,12 +1,3 @@
-<!-- Fonts -->
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
-
-<!-- Styles -->
-<link rel="stylesheet" href="{{ asset('css/app.css') }}">
-
-<!-- Scripts -->
-<script src="{{ asset('js/app.js') }}" defer></script>
-
 <nav x-data="{ open: false }" class="bg-white border-b border-gray-100">
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

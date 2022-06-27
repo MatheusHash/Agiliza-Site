@@ -1,1 +1,2 @@
-<img src="public/images/logo-agilizaimoveis.png" width="100px" height="150px" alt="Agiliza Imoveis" />
+<img src="/logo-agilizaimoveis.png" alt="Agiliza Imoveis"  style="width: 150px; height: 50px;" />
+

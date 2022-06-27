@@ -1,4 +1,5 @@
-@extends('layouts.navigation')
+@extends('layouts.app')
+@include('layouts.navigation')
 
 @section('content')
 
