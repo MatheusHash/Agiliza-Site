@@ -15,16 +15,8 @@ class CidadeController extends Controller
         return view("admin/cidades/cidade",['cidades'=>$cidades]);
     }
 
-    public function formAdicionar(){
-        return view("admin/cidades/form");
-    }
-
     public function salvarCidade(Request $request){
-//        $cidade = new Cidade();
-//        $cidade = $request->nome;
-//        $cidade->save($cidade); // Salvar no banco de dados
         Cidade::create($request->all());
         return redirect()->route('cidades');
-//            dd($request);
     }
 }

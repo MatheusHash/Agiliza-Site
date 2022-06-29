@@ -12,4 +12,5 @@ class ImovelController extends Controller
         return view('admin/imovel');
 
     }
+
 }

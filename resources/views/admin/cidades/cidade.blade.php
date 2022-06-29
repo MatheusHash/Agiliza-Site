@@ -1,13 +1,11 @@
 @extends('layouts.admin')
 @include('layouts.navigation')
+@include('admin.cidades.form')
 
 @section('content')
-
     <section class="bg-indigo-50">
 
         <div class="container">
-        <a href="{{route('formAdicionarCidade')}}" class="btn btn-primary btn-lg ">Cadastrar Cidade</a>
-
             <table class="table">
                 <thead>
                 <tr>
@@ -31,8 +29,6 @@
             </table>
             </table>
         </div>
-
-
         </tbody>
 
     </section>

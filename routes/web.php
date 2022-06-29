@@ -28,7 +28,6 @@ Route::middleware('auth')->group(function (){ //Middleware para autenticar o usu
 
         Route::prefix('cidades')->group(function(){
             Route::get('/', [App\Http\Controllers\admin\CidadeController::class, 'cidades'])->name('cidades');
-            Route::get('/adicionar', [App\Http\Controllers\admin\CidadeController::class, 'formAdicionar'])->name('formAdicionarCidade');
             Route::post('/adicionar', [App\Http\Controllers\admin\CidadeController::class, 'salvarCidade'])->name('salvarCidade');
 
         });
