@@ -11,6 +11,8 @@
                 <tr>
                     <th scope="col">Cod</th>
                     <th scope="col">Nome</th>
+                    <th scope="col">ação</th>
+
                 </tr>
                 </thead>
                 <tbody>

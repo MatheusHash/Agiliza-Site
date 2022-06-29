@@ -91,13 +91,23 @@
                             </div>
                         </div>
                     </div>
-                    <div class="py-4 mb-4">
-                        <p>O imovel está para: </p>
-                        <select name="motivo" id="motivo" class="rounded-lg" onselect="">
-{{--                            <option value=""></option>--}}
-                            <option value="alugar">Alugar</option>
-                            <option value="vender">Vender</option>
-                        </select>
+                    <div class="flex py-4 mb-4">
+                        <div class="mx-auto">
+                            <p>O imovel está para</p>
+                            <select name="motivo" id="motivo" class="rounded-lg" onselect="">
+    {{--                            <option value=""></option>--}}
+                                <option value="alugar">Alugar</option>
+                                <option value="vender">Vender</option>
+                            </select>
+                        </div>
+                        <div class="mx-auto">
+                            <p>Cidade</p>
+                            <select name="motivo" id="motivo" class="rounded-lg" onselect="">
+                                @foreach($nomeCidades as $nomeCidade)
+                                    <option value="{{$nomeCidade->nome}}">{{$nomeCidade->nome}}</option>
+                                @endforeach
+                            </select>
+                        </div>
                     </div>
                     {{-- Btn para submeter o formulario --}}
                     <button class="bg-gray-800 rounded-lg text-white text-center font-bold p-5 mt-6" type="submit">Cadastrar imovel</button>

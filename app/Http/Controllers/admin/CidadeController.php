@@ -9,9 +9,7 @@ use App\Models\Cidade;
 class CidadeController extends Controller
 {
     public function cidades(){
-//
         $cidades = Cidade::all();
-//        dd($cidades);
         return view("admin/cidades/cidade",['cidades'=>$cidades]);
     }
 
@@ -19,4 +17,5 @@ class CidadeController extends Controller
         Cidade::create($request->all());
         return redirect()->route('cidades');
     }
+
 }
