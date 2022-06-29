@@ -5,11 +5,11 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class InserirImovel extends Controller
+class ImovelController extends Controller
 {
-    public function index(){
+    public function page(){
 
-        return view('admin/insereImovel');
+        return view('admin/imovel');
 
     }
 }

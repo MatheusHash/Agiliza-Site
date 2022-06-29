@@ -31,7 +31,7 @@
                     <div class="mb-4">
                         <label for="imagens" class="block text-sm font-medium text-gray-700">Escolha as melhores imagens do Imovel</label>
                         <div class="mt-1 relative rounded-md shadow-sm">
-                            <input type="file" name="imagens" id="imagens" class="focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-7 pr-12 sm:text-sm border-gray-300 rounded-md" placeholder="1050,50">
+                            <input type="file" name="imagens" id="imagens" class="focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-7 pr-12 sm:text-sm border-gray-300 rounded-md" multiple>
                         </div>
                     </div>
                     {{--Endereco --}}
@@ -56,7 +56,7 @@
                         </div>
                     </div>
 {{--                    Comodos e areas do imovel--}}
-                    <div>
+                    <div class=" container ">
 
                         <h3 class="text-gray-600 text-center pt-8 pb-3"> Comodos / Areas do imovel</h3>
 
