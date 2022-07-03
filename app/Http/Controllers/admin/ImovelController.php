@@ -14,4 +14,7 @@ class ImovelController extends Controller
 
     }
 
+    public function salvarImovel(Request $request){
+        dd($request->request);
+    }
 }

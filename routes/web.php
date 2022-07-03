@@ -24,7 +24,11 @@ Route::middleware('auth')->group(function (){ //Middleware para autenticar o usu
         /*
          * Rotas com controllers */
         Route::get('/dashboard', [\App\Http\Controllers\admin\DashboardController::class, 'index'])->name('dashboard');
-        Route::get('/imovel', [App\Http\Controllers\admin\ImovelController::class, 'page'])->name('imovel');
+
+        Route::prefix('imovel')->group(function (){
+            Route::get('/adicionar', [App\Http\Controllers\admin\ImovelController::class, 'page'])->name('formAdicionarImovel');
+            Route::post('/adicionar',[App\Http\Controllers\admin\ImovelController::class, 'salvarImovel'])->name('salvarImovel');
+        });
 
         Route::prefix('cidades')->group(function(){
             Route::get('/', [App\Http\Controllers\admin\CidadeController::class, 'cidades'])->name('cidades');
