@@ -103,8 +103,8 @@
                         <div class="mx-auto">
                             <p>Cidade</p>
                             <select name="motivo" id="motivo" class="rounded-lg" onselect="">
-                                @foreach($nomeCidades as $nomeCidade)
-                                    <option value="{{$nomeCidade->nome}}">{{$nomeCidade->nome}}</option>
+                                @foreach($Cidades as $cidade)
+                                    <option value="{{$cidade->id}}">{{$cidade->nome}}</option>
                                 @endforeach
                             </select>
                         </div>

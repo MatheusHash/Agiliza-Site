@@ -9,8 +9,8 @@ use App\Models\Cidade;
 class ImovelController extends Controller
 {
     public function page(){
-       $nomeCidades = Cidade::all('nome');
-        return view('admin/imovel', ['nomeCidades'=>$nomeCidades]);
+       $Cidades = Cidade::all('nome');
+        return view('admin/imovel', ['Cidades'=>$Cidades]);
 
     }
 
