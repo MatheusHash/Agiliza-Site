@@ -28,11 +28,12 @@ Route::middleware('auth')->group(function (){ //Middleware para autenticar o usu
         Route::prefix('imovel')->group(function (){
             Route::get('/adicionar', [App\Http\Controllers\admin\ImovelController::class, 'page'])->name('formAdicionarImovel');
             Route::post('/adicionar',[App\Http\Controllers\admin\ImovelController::class, 'salvarImovel'])->name('salvarImovel');
+            
+            Route::get('/listaDeImoveis', [App\Http\Controllers\admin\ImovelController::class,'listarImoveis'])->name('listaDeImoveis');
+            Route::get('/{id}', [App\Http\Controllers\admin\ImovelController::class,'buscarPeloId'])->name('buscarPeloId');
         });
 
-        Route::get('/imoveis', [App\Http\Controllers\admin\ImovelController::class,'listarImoveis'])->name('listaDeImoveis');
         
-
         Route::prefix('cidades')->group(function(){
             Route::get('/', [App\Http\Controllers\admin\CidadeController::class, 'cidades'])->name('cidades');
             Route::post('/adicionar', [App\Http\Controllers\admin\CidadeController::class, 'salvarCidade'])->name('salvarCidade');
