@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\SalvarAtualizarFormRequestImovel;
 use Illuminate\Http\Request;
 use App\Models\Cidade;
 use App\Models\Imovel;
@@ -14,10 +15,10 @@ class ImovelController extends Controller
         return view('admin/imovel', ['Cidades'=>$Cidades]);
     }
 
-    public function salvarImovel(Request $request){
+    public function salvarImovel(SalvarAtualizarFormRequestImovel $request){
         Imovel::create($request->all());
-        // dd($request->all());
-        return redirect()->route('dashboard');
+
+        return redirect()->route('listaDeImoveis');
     }
 
     public function listarImoveis(){

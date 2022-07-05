@@ -2,19 +2,32 @@
 @extends('layouts.admin')
 
 @section('content')
-    <section class="bg-indigo-50 flex justify-center">
+    
+    {{-- @if($errors->any())
+        <ul>
+            @foreach($errors->all() as $error)
+                <li>{{$error}}</li>
+            @endforeach
+        </ul>
+    @endif --}}
 
+    <section class="bg-indigo-50 flex justify-center">
+        
         <div class="grid grid-cols-1">
             <div class="w-auto py-12" style="width: 720px">
                 <h1 class="text-center text-gray-600">Cadastrar imovel</h1>
 
                 <form class="text-gray-600" method="post">
                     @csrf
+
                     {{-- Titulo --}}
                     <div class="mb-4">
                         <label for="titulo" class="block text-sm font-medium text-gray-700">Titulo</label>
                         <div class="mt-1 relative rounded-md shadow-sm">
-                            <input type="text" name="titulo" id="price" class="focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-7 pr-12 sm:text-sm border-gray-300 rounded-md" placeholder="Casa com Area de lazer">
+                            <input type="text" name="titulo" id="price" value="{{  old('titulo')  }}" class=" @error('titulo') is-invalid @enderror focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-7 pr-12 sm:text-sm border-gray-300 rounded-md" placeholder="Casa com Area de lazer">
+                            @error('titulo')
+                                <h1 class="text-red-600 ">{{ $message }}</h1>
+                            @enderror
                         </div>
                     </div>
                     {{-- Valor --}}
@@ -100,7 +113,7 @@
                     </div>--}}
                     <div class="mx-auto">
                         <p>Cidade</p>
-                        <select name="cidade_id" id="cidade_id" class="rounded-lg" onselect="">
+                        <select name="cidade_id" id="cidade_id" class="rounded-lg">
                             @foreach($Cidades as $cidade)
                                 <option value="{{ $cidade->id}}">{{$cidade->nome}}</option>
                             @endforeach
