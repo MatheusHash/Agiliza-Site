@@ -1,6 +1,5 @@
 {{--directory layouts, archive app.blade.php--}}
 @extends('layouts.admin')
-@include('layouts.navigation')
 
 @section('content')
     <section class="bg-indigo-50 flex justify-center">
@@ -22,8 +21,7 @@
                     <div class="mb-4">
                         <label for="valor" class="block text-sm font-medium text-gray-700">Price</label>
                         <div class="mt-1 relative rounded-md shadow-sm">
-
-                            <input type="number" name="valor" id="price" class="focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-7 pr-12 sm:text-sm border-gray-300 rounded-md" placeholder="1050,50">
+                            <input type="number"  step="0.01" name="valor" id="price" class="focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-7 pr-12 sm:text-sm border-gray-300 rounded-md" placeholder="1050,50">
                         </div>
                     </div>
 

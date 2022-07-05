@@ -1,9 +1,11 @@
 @extends('layouts.admin')
-@include('layouts.navigation')
 
 @section('content')
 
-<section class=" ">
+<section class="bg-dark">
+    {{-- {{$imoveis}} --}}
+
+
 
     <div class="container ">
         <table class="mt-6 mx-auto table">
@@ -16,7 +18,6 @@
                 <th class="border-b border-indigo-400 bg-gray-100 text-center p-2" scope="col">Codigo da cidade</th>
                 <th class="border-b border-indigo-400 bg-gray-100 text-center p-2" scope="col">GoogleMaps</th>
                 <th class="border-b border-indigo-400 bg-gray-100 text-center p-2" scope="col">ação</th>
-
             </tr>
             </thead>
             <tbody>

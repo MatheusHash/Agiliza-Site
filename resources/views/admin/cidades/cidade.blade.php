@@ -1,8 +1,7 @@
 @extends('layouts.admin')
-@include('layouts.navigation')
-@include('admin.cidades.form')
 
 @section('content')
+@include('admin.cidades.form')
     <section class="bg-indigo-50">
 
         <div class="container">
