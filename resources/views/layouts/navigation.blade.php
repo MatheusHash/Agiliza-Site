@@ -21,6 +21,9 @@
                     <x-nav-link :href="route('cidades')" :active="request()->routeIs('cidades')">
                         {{ __('Cidades') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('listaDeImoveis')" :active="request()->routeIs('listaDeImoveis')">
+                        {{ __('Listar Imoveis') }}
+                    </x-nav-link>
                 </div>
             </div>
 

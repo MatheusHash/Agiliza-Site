@@ -22,7 +22,8 @@ class ImovelController extends Controller
 
     public function listarImoveis(){
         $imoveis = Imovel::all();
-        return redirect()->route('listaImoveis');
+        return view('admin/imoveis/listaDeImoveis', ['imoveis'=>$imoveis]);
  
     }
+
 }

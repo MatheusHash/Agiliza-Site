@@ -30,6 +30,9 @@ Route::middleware('auth')->group(function (){ //Middleware para autenticar o usu
             Route::post('/adicionar',[App\Http\Controllers\admin\ImovelController::class, 'salvarImovel'])->name('salvarImovel');
         });
 
+        Route::get('/imoveis', [App\Http\Controllers\admin\ImovelController::class,'listarImoveis'])->name('listaDeImoveis');
+        
+
         Route::prefix('cidades')->group(function(){
             Route::get('/', [App\Http\Controllers\admin\CidadeController::class, 'cidades'])->name('cidades');
             Route::post('/adicionar', [App\Http\Controllers\admin\CidadeController::class, 'salvarCidade'])->name('salvarCidade');
