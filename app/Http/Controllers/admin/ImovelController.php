@@ -18,30 +18,36 @@ class ImovelController extends Controller
         return view('admin/imoveis/imovel', ['Cidades'=>$Cidades]);
     }
 
-    public function salvarImovel(SalvarAtualizarFormRequestImovel $request){
+    public function store(SalvarAtualizarFormRequestImovel $request){
         Imovel::create($request->all());
         return redirect()->route('listaDeImoveis');
     }
 
-    public function listarImoveis(){
+    public function show(){
         $imoveis = Imovel::all();
         return view('admin/imoveis/listaDeImoveis', ['imoveis'=>$imoveis]);
     }
     
-    public function buscarPeloId($id){
-        if($imovel = Imovel::find($id));
+    public function showById($id){
+        if($imovel = Imovel::find($id))
             return view('admin/imoveis/listarImovel', ['imovel'=>$imovel]);
             // dd($imovel);
             
         return redirect()->route('listaDeImoveis');
     }
     
-    public function editarImovel(){
-        
-        if(!$imovel = Imovel::find($id))
-            return redirect()->route('listaDeImoveis');
-        
-        return view('admin/imoveis/listaDeImoveis', ['imoveis'=>$imoveis]);
+    public function edit($id){
+        if( $imovel = Imovel::where('id',$id)->first()){
+            // dd($imovel);
+            $Cidades = Cidade::all();
+            return view('admin/imoveis/editarImovel', ['imovel'=>$imovel,'Cidades'=>$Cidades]);
+        }
+            return redirect()->route('imoveis.show');
+    }
+
+    public function update($id){
+        // Imovel::all()->where($id);
+        return redirect()->route('imoveis.show');
     } 
 
 }

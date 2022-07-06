@@ -15,13 +15,13 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('formAdicionarImovel')" :active="request()->routeIs('formAdicionarImovel')">
+                    <x-nav-link :href="route('imoveis.store.form')" :active="request()->routeIs('imoveis.store.form')">
                         {{ __('Inserir imovel') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('cidades')" :active="request()->routeIs('cidades')">
+                    <x-nav-link :href="route('cidades.index')" :active="request()->routeIs('cidades.index')">
                         {{ __('Cidades') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('listaDeImoveis')" :active="request()->routeIs('listaDeImoveis')">
+                    <x-nav-link :href="route('imoveis.show')" :active="request()->routeIs('imoveis.show')">
                         {{ __('Listar Imoveis') }}
                     </x-nav-link>
                 </div>

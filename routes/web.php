@@ -25,18 +25,30 @@ Route::middleware('auth')->group(function (){ //Middleware para autenticar o usu
          * Rotas com controllers */
         Route::get('/dashboard', [\App\Http\Controllers\admin\DashboardController::class, 'index'])->name('dashboard');
 
-        Route::prefix('imovel')->group(function (){
-            Route::get('/adicionar', [App\Http\Controllers\admin\ImovelController::class, 'page'])->name('formAdicionarImovel');
-            Route::post('/adicionar',[App\Http\Controllers\admin\ImovelController::class, 'salvarImovel'])->name('salvarImovel');
+        Route::prefix('imoveis')->group(function (){
+
+            // Rotas para formulario e adicionar um Imovel no BD
+            Route::get('/adicionar', [App\Http\Controllers\admin\ImovelController::class, 'page'])->name('imoveis.store.form');
+            Route::post('/adicionar',[App\Http\Controllers\admin\ImovelController::class, 'store'])->name('imoveis.store');
             
-            Route::get('/listaDeImoveis', [App\Http\Controllers\admin\ImovelController::class,'listarImoveis'])->name('listaDeImoveis');
-            Route::get('/{id}', [App\Http\Controllers\admin\ImovelController::class,'buscarPeloId'])->name('buscarPeloId');
+            // Rotaa para listar todos os imoveis
+            Route::get('/listaDeImoveis', [App\Http\Controllers\admin\ImovelController::class,'show'])->name('imoveis.show');
+            
+            // Rota para um mostrar imovel pelo ID
+            Route::get('/{id}', [App\Http\Controllers\admin\ImovelController::class,'showById'])->name('showById.index');
+
+            // Rota para mostrar o formulario de update do Imovel
+            Route::get('/{id}/editar',[App\Http\Controllers\admin\ImovelController::class, 'edit'])->name('imoveis.edit');
+            Route::put('/{id}/update',[App\Http\Controllers\admin\ImovelController::class, 'update'])->where('id', '[0-9]+')->name('imoveis.update');
+       
         });
 
-        
+
+
         Route::prefix('cidades')->group(function(){
-            Route::get('/', [App\Http\Controllers\admin\CidadeController::class, 'cidades'])->name('cidades');
-            Route::post('/adicionar', [App\Http\Controllers\admin\CidadeController::class, 'salvarCidade'])->name('salvarCidade');
+            // Rotas para listar e Adicionar cidades no BD
+            Route::get('/', [App\Http\Controllers\admin\CidadeController::class, 'index'])->name('cidades.index');
+            Route::put('/adicionar', [App\Http\Controllers\admin\CidadeController::class, 'store'])->name('cidades.store');
 
         });
 

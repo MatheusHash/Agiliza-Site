@@ -1,7 +1,7 @@
     <section class="bg-indigo-50 justify-center flex">
 
         <div style="width: 80vw;" class=" items-center">
-            <form action="{{route("salvarCidade")}}" method="POST">
+            <form action="{{route("cidades.store")}}" method="POST">
                 @csrf
                 <div class="flex ">
                     <div class="p-2">
@@ -11,7 +11,9 @@
                         </div>
                     </div>
                     <div class="ml-3">
-                        <button class="bg-gray-800 rounded-lg text-white text-center font-bold p-5 mt-6" type="submit">Salvar</button>
+                        <x-button class="ml-3 p-2 mt-4 " type="submit">
+                            {{ __('Cadastrar Cidade') }}
+                        </x-button>
                     </div>
                 </div>
             </form>

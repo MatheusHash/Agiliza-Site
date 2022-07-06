@@ -8,12 +8,12 @@ use App\Models\Cidade;
 
 class CidadeController extends Controller
 {
-    public function cidades(){
+    public function index(){
         $cidades = Cidade::all();
         return view("admin/cidades/cidade",['cidades'=>$cidades]);
     }
 
-    public function salvarCidade(Request $request){
+    public function store(Request $request){
         Cidade::create($request->all());
         return redirect()->route('cidades');
     }
