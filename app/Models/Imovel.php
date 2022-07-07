@@ -21,4 +21,8 @@ class Imovel extends Model
     ];
 
     public $table = 'imoveis';
+
+    public function galeria(){
+        return $this->hasMany(Galeria::class, 'imovel_id', 'id');
+    }
 }
