@@ -48,7 +48,7 @@ Route::middleware('auth')->group(function (){ //Middleware para autenticar o usu
         Route::prefix('cidades')->group(function(){
             // Rotas para listar e Adicionar cidades no BD
             Route::get('/', [App\Http\Controllers\admin\CidadeController::class, 'index'])->name('cidades.index');
-            Route::put('/adicionar', [App\Http\Controllers\admin\CidadeController::class, 'store'])->name('cidades.store');
+            Route::post('/adicionar', [App\Http\Controllers\admin\CidadeController::class, 'store'])->name('cidades.store');
 
         });
 
