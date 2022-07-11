@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('path',700);
             $table->foreignId('imovel_id')->constrained('imoveis','id');
+            $table->boolean('principal')->default(0);
             $table->timestamps();
         });
     }
