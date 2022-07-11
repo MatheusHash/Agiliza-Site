@@ -15,21 +15,18 @@ class ImovelController extends Controller
 
         // Passando as cidades para a view do formulario de adicionar Imovel
        $Cidades = Cidade::all('id','nome');
-
         return view('admin/imoveis/imovel', ['Cidades'=>$Cidades]);
     }
 
     public function store(SalvarAtualizarFormRequestImovel $request){
 
         $dataForm = $request->all();
-        // Inserindo no banco de dados e salvando os dados da inserção na va
+        // Inserindo no banco de dados e salvando os dados da inserção na var $imovel
         $imovel = Imovel::create($request->all());
-//        dd($imovel->id);
 
         if($request->hasFile('imagens')){
-
-            // path onde as imagens srão salvas
-            // cada imovel terá suas imagens salvas com a pasta do seu ID
+            // $path => onde as imagens srão salvas
+            // cada imovel terá suas imagens salvas na pasta do seu ID
             $path = 'images/' . $imovel->id;
             foreach( $dataForm['imagens'] as $key => $file ){
                 $image = $file;
@@ -41,7 +38,7 @@ class ImovelController extends Controller
                 $galeria->path = $path . "/". $nameImage;
                 $galeria->imovel_id = $imovel->id;
                 $galeria->save();
-                unset($galeria);
+                  unset($galeria); // esvaziar a var 
             }
 
         }
@@ -50,20 +47,19 @@ class ImovelController extends Controller
 
     public function show(){
         $imoveis = Imovel::all();
-        return view('admin/imoveis/listaDeImoveis', ['imoveis'=>$imoveis]);
+        $Galeria = Galeria::all(); 
+        return view('admin/imoveis/listaDeImoveis', ['imoveis'=>$imoveis,'Galeria'=>$Galeria]);
     }
 
     public function showById($id){
         if($imovel = Imovel::find($id))
             return view('admin/imoveis/listarImovel', ['imovel'=>$imovel]);
-            // dd($imovel);
 
-        return redirect()->route('listaDeImoveis');
+        return redirect()->route('imoveis.show');
     }
 
     public function edit($id){
         if( $imovel = Imovel::where('id',$id)->first()){
-            // dd($imovel);
             $Cidades = Cidade::all();
             return view('admin/imoveis/editarImovel', ['imovel'=>$imovel,'Cidades'=>$Cidades]);
         }
