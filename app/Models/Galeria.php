@@ -10,7 +10,8 @@ class Galeria extends Model
     use HasFactory;
 
     protected $fillable= [
-        'path'
+        'path',
+        'imovel_id',
     ];
 
     public function imovel(){

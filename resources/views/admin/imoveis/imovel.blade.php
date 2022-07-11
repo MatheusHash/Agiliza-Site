@@ -2,7 +2,7 @@
 @extends('layouts.admin')
 
 @section('content')
-    
+
     @if($errors->any())
         <ul>
             @foreach($errors->all() as $error)
@@ -12,12 +12,12 @@
     @endif
 
     <section class="bg-indigo-50 flex justify-center">
-        
+
         <div class="grid grid-cols-1">
             <div class="w-auto py-12" style="width: 720px">
                 <h1 class="text-center text-gray-600">Cadastrar imovel</h1>
 
-                <form class="text-gray-600" method="post">
+                <form class="text-gray-600" method="post" enctype="multipart/form-data">
                     @csrf
 
                     {{-- Titulo --}}
@@ -38,13 +38,14 @@
                         </div>
                     </div>
 
+
 {{--                    Imagens --}}
-                    {{-- <div class="mb-4">
+                    <div class="mb-4">
                         <label for="imagens" class="block text-sm font-medium text-gray-700">Escolha as melhores imagens do Imovel</label>
                         <div class="mt-1 relative rounded-md shadow-sm">
-                            <input type="file" name="imagens" id="imagens" class="focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-7 pr-12 sm:text-sm border-gray-300 rounded-md" multiple>
+                            <input type="file" name="imagens[]" id="imagens" class="focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-7 pr-12 sm:text-sm border-gray-300 rounded-md" multiple>
                         </div>
-                    </div> --}}
+                    </div>
                     {{--Endereco --}}
                     <div class="mb-4">
                         <label for="endereco" class="block text-sm font-medium text-gray-700">Endereço</label>
@@ -100,7 +101,7 @@
                                 </div>
 
                             </div>
-                        </div> 
+                        </div>
                     </div>--}}
                    {{-- <div class="flex py-4 mb-4">
                          <div class="mx-auto">
@@ -109,7 +110,7 @@
                                 <option value="alugar">Alugar</option>
                                 <option value="vender">Vender</option>
                             </select>
-                        </div> 
+                        </div>
                     </div>--}}
                     <div class="mx-auto">
                         <p>Cidade</p>
@@ -119,18 +120,15 @@
                             @endforeach
                         </select>
                     </div>
+
                     <div class="mx-auto">
-                        <p>Ocultar</p>
+                        <label for="oculto">Escolha a visibilidade do imovel</label>
                         <select name="oculto" id="oculto" class="rounded-lg">
-                                <option value="1">Ocultar</option>
+                                <option value="1">Visivel</option>
+                                <option value="0">Oculto</option>
                         </select>
                     </div>
-                    <div class="mx-auto">
-                        <p>Cidade</p>
-                        <select name="cidade" id="cidade" class="rounded-lg" onselect="">
-                                <option value="vazaa">vaza fora</option>
-                        </select>
-                    </div>
+                    <input name="cidade" id="cidade" type="text" >
                     {{-- Btn para submeter o formulario --}}
                     <button class="bg-gray-800 rounded-lg text-white text-center font-bold p-5 mt-6" type="submit">Cadastrar imovel</button>
                 </form>
