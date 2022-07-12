@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('galerias', function (Blueprint $table) {
             $table->id();
             $table->string('path',700);
-            $table->foreignId('imovel_id')->constrained('imoveis','id');
+            $table->foreignId('imovel_id')->constrained('imoveis','id')->onDelete('cascade');
             $table->boolean('principal')->default(0);
             $table->timestamps();
         });

@@ -16,12 +16,11 @@ return new class extends Migration
         Schema::create('imoveis', function (Blueprint $table) {
             $table->id();
             $table->string('titulo',65);
-            $table->string('cidade',65);
             $table->boolean('oculto');
-            $table->double('valor',8,2);
+            $table->bigInteger('valor');
             $table->string('endereco',256);
-            $table->string('googlemaps',2000);
-            $table->string('descricao',600);
+            $table->string('googlemaps');
+            $table->string('descricao');
             $table->timestamps();
         });
     }
