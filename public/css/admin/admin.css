@@ -1,0 +1,51 @@
+.container{
+    display: grid;
+    padding: 2em 3em;
+}
+
+.titulo-imovel{
+    color: #FF6702;
+    font-size: large;
+}
+
+.btn{
+    width: 6rem;
+    height: 3rem;
+}
+.btn-vermelho{
+    background-color: rgb(207, 24, 24);
+}
+.btn-amarelo{
+    background-color: rgb(202, 199, 0);
+}
+
+.btn-azul{
+    background-color: rgb(12, 108, 199);
+}
+.btn-cinza{
+    background-color: rgb(85, 102, 117);
+}
+
+.section-lista-imoveis{
+    max-width: 100vw; 
+    min-height:100vh; 
+    background-color: #000; 
+    color: #ccc    
+}
+
+.space-around{
+    display: flex;
+    justify-content: space-around;
+}
+
+.detalhes-imovel{
+    width: 80%;
+}
+
+.imagem-do-imovel{
+    object-fit: cover;
+    max-width: 15rem;
+    /* min-width: 15rem; */
+    max-height: 15rem;
+    /* min-height: 15rem; */
+}
