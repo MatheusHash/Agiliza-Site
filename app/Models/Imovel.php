@@ -5,13 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * @method static where(string $string, $idImovel)
+ */
 class Imovel extends Model
 {
     use HasFactory;
 
     protected $fillable = [
         'titulo',
-        'cidade',
         'valor',
         'endereco',
         'oculto',

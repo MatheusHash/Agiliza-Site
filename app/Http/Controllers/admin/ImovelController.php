@@ -8,6 +8,7 @@ use App\Models\Galeria;
 use Illuminate\Http\Request;
 use App\Models\Cidade;
 use App\Models\Imovel;
+use Illuminate\Support\Facades\Storage;
 
 class ImovelController extends Controller
 {
@@ -24,6 +25,20 @@ class ImovelController extends Controller
         // Inserindo no banco de dados e salvando os dados da inserção na var $imovel
         $imovel = Imovel::create($request->all());
 
+        if($request->hasFile('imagem-principal')){
+            $path = 'images/' . $imovel->id;
+
+            $image = $dataForm['imagem-principal'];
+            $nameImage = uniqid(date('Ymdhis') ). '.' . $image->getClientOriginalExtension();
+            $image->storeAs($path, $nameImage);
+
+            $galeria = new Galeria();
+            $galeria->$path . "/". $nameImage;
+            $galeria->imovel_id = $imovel->id;
+            $galeria->principal = 1;
+            unset($galeria);
+        }
+
         if($request->hasFile('imagens')){
             // $path => onde as imagens srão salvas
             // cada imovel terá suas imagens salvas na pasta do seu ID
@@ -38,7 +53,7 @@ class ImovelController extends Controller
                 $galeria->path = $path . "/". $nameImage;
                 $galeria->imovel_id = $imovel->id;
                 $galeria->save();
-                  unset($galeria); // esvaziar a var 
+                  unset($galeria); // esvaziar a var
             }
 
         }
@@ -47,7 +62,7 @@ class ImovelController extends Controller
 
     public function show(){
         $imoveis = Imovel::all();
-        $Galeria = Galeria::all(); 
+        $Galeria = Galeria::all()->where('principal',1);
         return view('admin/imoveis/listaDeImoveis', ['imoveis'=>$imoveis,'Galeria'=>$Galeria]);
     }
 
@@ -70,5 +85,14 @@ class ImovelController extends Controller
         // Imovel::all()->where($id);
         return redirect()->route('imoveis.show');
     }
+
+    public function destroy($idImovel){
+
+        Galeria::where('id',$idImovel)->delete();
+        Imovel::where('id',$idImovel)->delete();
+        Storage::disk('public')->deleteDirectory('images/'. $idImovel);
+        return redirect()->route('imoveis.show')->with('msg','Imóvel deletado com sucesso!');
+    }
+
 
 }

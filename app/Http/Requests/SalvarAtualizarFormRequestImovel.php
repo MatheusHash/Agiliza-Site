@@ -31,8 +31,7 @@ class SalvarAtualizarFormRequestImovel extends FormRequest
             'endereco'=>['required', 'string', 'min: 5','max: 100'],
             'oculto'=>['nullable'],
             'googlemaps'=>['nullable', 'max: 1999'],
-            'descricao'=>['required', 'string','min: 10','max:600'],
-            'cidade_id'=> 'required',
+            'descricao'=>['required', 'string'],
         ];
     }
 }

@@ -39,6 +39,13 @@
                     </div>
 
 
+{{--                    Imagem Principal --}}
+                    <div class="mb-4">
+                        <label for="imagens" class="block text-sm font-medium text-gray-700">Foto principal - Foto de Capa</label>
+                        <div class="mt-1 relative rounded-md shadow-sm">
+                            <input type="file" name="imagem-principal" id="capa" class="focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-7 pr-12 sm:text-sm border-gray-300 rounded-md">
+                        </div>
+                    </div>
 {{--                    Imagens --}}
                     <div class="mb-4">
                         <label for="imagens" class="block text-sm font-medium text-gray-700">Escolha as melhores imagens do Imovel</label>
@@ -128,7 +135,6 @@
                                 <option value="0">Oculto</option>
                         </select>
                     </div>
-                    <input name="cidade" id="cidade" type="text" >
                     {{-- Btn para submeter o formulario --}}
                     <button class="bg-gray-800 rounded-lg text-white text-center font-bold p-5 mt-6" type="submit">Cadastrar imovel</button>
                 </form>
