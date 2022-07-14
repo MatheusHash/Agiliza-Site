@@ -1,0 +1,80 @@
+/* Logo empresa - Agiliza imoveis */
+.agilizaimoveis-logo{
+    max-width: 16em;
+    min-width: 14em;
+}
+
+ul,li{
+    list-style: none;
+}
+.text-orange{
+    color: #FF6702;
+}
+.bg-orange{
+    background-color: #FF6702;
+}
+
+.bg-black{
+    background-color: black;
+}
+.topbar{
+    max-width: 100vw;
+    height: 20vh;
+}
+
+.navbar{
+    color: white;
+}
+
+.container{
+    width: 95%;
+    margin: 0 auto;
+}
+
+.paragrafo{
+    text-align: justify;
+}
+
+@media (min-width: 576px) {  }
+
+/* Dispositivos médios (tablets com 768px ou mais) */
+@media (min-width: 768px) {  }
+
+/* Dispositivos large (desktops com 992px ou mais) */
+@media (min-width: 992px) {  }
+
+/* Dispositivos extra large (desktops grandes com 1200px ou mais) */
+@media (min-width: 1200px) {  
+    .list-nav-link{
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    .item-nav-list{
+        text-align: center;
+    }
+
+    .item-nav-list a{
+        width: 100%;
+        height: 25px;
+        padding: 5px;
+        /* margin: 0 2em; */
+    }
+    
+    .border-nav{
+        max-width:100vw;
+        border-bottom: 5px solid transparent;
+        border-image: linear-gradient(to right,#FF6702 50%, white 50%);
+        border-image-slice: 1;
+    }
+
+    .campos-do-form{
+        background-color: #ccc;
+        padding: .3em .8em;
+    }
+
+    .ajustar-tam-tela{
+        height: 80vw;
+    }
+}
