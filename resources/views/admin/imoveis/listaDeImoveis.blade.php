@@ -54,7 +54,7 @@
                         </div>
 
                         <div class="botoes-acao grid">
-                            <a href="https://facebook.com" target="_blank">
+                            <a href="{{$imovel->googlemaps}}" target="_blank">
                                 <x-button class="ml-3 mb-4 btn btn-azul">
                                     {{__('Google Maps')}}
                                 </x-button>
@@ -65,11 +65,20 @@
                                 </x-button>
                             </a>
 
-                            <a href="{{route('imoveis.visibility',$imovel->id)}}">
-                                <x-button class="ml-3 mb-4 btn btn-cinza">
-                                    {{ __('Ocultar') }}
-                                </x-button>
-                            </a>
+                            <form action="{{route('imoveis.visibility', ['id'=>$imovel->id])}}" method="POST">
+                                @csrf
+                                @method('PUT')
+                                @if($imovel->visibility)
+                                    <x-button class="ml-3 mb-4 btn btn-cinza" type="submit">
+                                        {{ __('Ocultar') }}
+                                    </x-button>
+
+                                @else
+                                    <x-button class="ml-3 mb-4 btn btn-cinza" type="submit">
+                                        {{ __('Mostrar') }}
+                                    </x-button>
+                                @endif
+                            </form>
 
 
                             <form action="{{route('imoveis.destroy', ['id'=>$imovel->id])}}" method="POST">
@@ -88,7 +97,7 @@
             @endforeach
 
         @else
-            <p class="text-white m-auto p-5">
+            <p class="text-white flex justify-center p-5">
                 Nenhum imóvel cadastrado!!
             </p>
         @endif

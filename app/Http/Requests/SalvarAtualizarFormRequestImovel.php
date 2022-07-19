@@ -26,11 +26,16 @@ class SalvarAtualizarFormRequestImovel extends FormRequest
         return [
             'titulo' => ['required', 'string', 'min: 4','max:60'],
             'cidade_id' => ['required'],
-            'titulo',
+            'categoria_id' => ['required'],
             'valor' =>['required'],
             'endereco'=>['required', 'string', 'min: 5','max: 100'],
-            'oculto'=>['nullable'],
-            'googlemaps'=>['nullable', 'max: 1999'],
+            'visibility'=>['required'],
+            'quarto'=>['required'],
+            'banheiro'=>['required'],
+            'suite'=>['required'],
+            'garagem'=>['required'],
+            'motivo'=>['required'],
+            'googlemaps'=>['nullable'],
             'descricao'=>['required', 'string'],
         ];
     }

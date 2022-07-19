@@ -7,6 +7,7 @@ use App\Http\Requests\SalvarAtualizarFormRequestImovel;
 use App\Models\Galeria;
 use Illuminate\Http\Request;
 use App\Models\Cidade;
+use App\Models\Categoria;
 use App\Models\Imovel;
 use Illuminate\Support\Facades\Storage;
 
@@ -16,11 +17,11 @@ class ImovelController extends Controller
 
         // Passando as cidades para a view do formulario de adicionar Imovel
        $Cidades = Cidade::all('id','nome');
-        return view('admin/imoveis/imovel', ['Cidades'=>$Cidades]);
+       $Categorias = Categoria::all('id','nome');
+        return view('admin/imoveis/imovel', ['Cidades'=>$Cidades,'Categorias'=>$Categorias]);
     }
 
     public function store(SalvarAtualizarFormRequestImovel $request){
-
         $dataForm = $request->all();
         // Inserindo no banco de dados e salvando os dados da inserção na var $imovel
         $imovel = Imovel::create($request->all());
@@ -33,9 +34,10 @@ class ImovelController extends Controller
             $image->storeAs($path, $nameImage);
 
             $galeria = new Galeria();
-            $galeria->$path . "/". $nameImage;
+            $galeria->path = $path. "/". $nameImage;
             $galeria->imovel_id = $imovel->id;
             $galeria->principal = 1;
+            $galeria->save();
             unset($galeria);
         }
 
@@ -52,6 +54,7 @@ class ImovelController extends Controller
                 $galeria->imovel();
                 $galeria->path = $path . "/". $nameImage;
                 $galeria->imovel_id = $imovel->id;
+                $galeria->principal = 0;
                 $galeria->save();
                   unset($galeria); // esvaziar a var
             }
@@ -74,9 +77,13 @@ class ImovelController extends Controller
     }
 
     public function edit($id){
+        $imovel = Imovel::where('id',$id)->first();
+        $galeria = Galeria::where('id_imovel',$id);
+        // dd($imovel,$galeria);
         if( $imovel = Imovel::where('id',$id)->first()){
             $Cidades = Cidade::all();
-            return view('admin/imoveis/editarImovel', ['imovel'=>$imovel,'Cidades'=>$Cidades]);
+            $Categorias = Categoria::all();
+            return view('admin/imoveis/editarImovel', ['imovel'=>$imovel,'Cidades'=>$Cidades,'Categorias'=>$Categorias]);
         }
             return redirect()->route('imoveis.show');
     }
@@ -86,6 +93,19 @@ class ImovelController extends Controller
         return redirect()->route('imoveis.show');
     }
 
+    protected function visibilidade($idImovel){
+        
+        $imovel = Imovel::find($idImovel);
+        // dd(Imovel::find($idImovel),$idImovel);
+        if($imovel->visibility == 1){
+            $imovel->visibility = 0;
+        }else{
+            $imovel->visibility = 1;
+        }
+        $imovel->update();
+        return back();
+    }
+
     public function destroy($idImovel){
 
         Galeria::where('id',$idImovel)->delete();
@@ -93,6 +113,5 @@ class ImovelController extends Controller
         Storage::disk('public')->deleteDirectory('images/'. $idImovel);
         return redirect()->route('imoveis.show')->with('msg','Imóvel deletado com sucesso!');
     }
-
 
 }

@@ -15,6 +15,6 @@ class CidadeController extends Controller
 
     public function store(Request $request){
         Cidade::create($request->all());
-        return redirect()->route('cidades.index');
+        return back();
     }
 }

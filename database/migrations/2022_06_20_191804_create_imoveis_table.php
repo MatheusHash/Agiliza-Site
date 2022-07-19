@@ -18,7 +18,6 @@ return new class extends Migration
             $table->string('titulo',65);
             $table->integer('motivo');
             $table->integer('visibility');
-            $table->integer('categoria');
             $table->bigInteger('valor');
             $table->string('endereco',256);
             $table->string('googlemaps');

@@ -45,7 +45,7 @@ Route::middleware('auth')->group(function (){ //Middleware para autenticar o usu
             Route::delete('/{id}/delete',[App\Http\Controllers\admin\ImovelController::class, 'destroy'])->where('id', '[0-9]+')->name('imoveis.destroy');
             
             // Rota para alterar a visibilidade de um ímovel
-            Route::put('/{id}/visibilidade',[App\Http\Controllers\admin\ImovelController::class, 'visibility'])->where('id', '[0-9]+')->name('imoveis.visibility');
+            Route::put('/{id}/visibilidade',[App\Http\Controllers\admin\ImovelController::class, 'visibilidade'])->where('id', '[0-9]+')->name('imoveis.visibility');
             
         });
 
@@ -53,6 +53,12 @@ Route::middleware('auth')->group(function (){ //Middleware para autenticar o usu
             // Rotas para listar e Adicionar cidades no BD
             Route::get('/', [App\Http\Controllers\admin\CidadeController::class, 'index'])->name('cidades.index');
             Route::post('/adicionar', [App\Http\Controllers\admin\CidadeController::class, 'store'])->name('cidades.store');
+        });
+        
+        Route::prefix('categorias')->group(function(){
+            // Rotas para listar e Adicionar categorias no BD
+            Route::get('/', [App\Http\Controllers\admin\CategoriaController::class, 'index'])->name('categorias.index');
+            Route::post('/adicionar', [App\Http\Controllers\admin\CategoriaController::class, 'store'])->name('categorias.store');
         });
     });
 });
