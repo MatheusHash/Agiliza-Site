@@ -2,35 +2,17 @@
 
 @section('content')
 @include('admin.cidades.form')
-    <section class="bg-indigo-50">
-
-        <div class="container">
-            <table class="table">
-                <thead>
-                <tr>
-                    <th scope="col">Cod</th>
-                    <th scope="col">Nome</th>
-                    <th scope="col">ação</th>
-
-                </tr>
-                </thead>
-                <tbody>
-                @if($cidades)
-                    @foreach($cidades as $cidade )
-                        <tr class="col">
-                            <td>{{$cidade->id}}</td>
-                            <td>{{$cidade->nome}}</td>
-                            <td>
-                                <button type="button" class="btn btn-danger btn-sm">excluir</button>
-                            </td>
-                        </tr>
-                    @endforeach
-                @endif
-                </tbody>
-            </table>
-            </table>
+    <section class="bg-indigo-50 ">
+        <div class="border-indigo-500 ml-12" style="justify-content:center;">
+            @if($cidades)
+                @foreach($cidades as $cidade )
+                        <span class="border-indigo-500 p-2">{{$cidade->id}} |</span>
+                        <span class="border-indigo-500 p-2">{{$cidade->nome}}</span>
+                        <hr>
+                        <br>
+                @endforeach
+            @endif
         </div>
-        </tbody>
 
     </section>
 
