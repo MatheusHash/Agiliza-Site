@@ -13,12 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('galerias', function (Blueprint $table) {
-            $table->id();
-            $table->string('path',700);
-            $table->foreignId('imovel_id')->constrained('imoveis','id')->onDelete('cascade');
-            $table->integer('principal');
-            $table->timestamps();
+        Schema::table('imoveis', function (Blueprint $table) {
+            $table->foreignId('categoria_id')->constrained('categorias','id')->onDelete('cascade');
         });
     }
 
@@ -29,6 +25,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('galeria');
+        Schema::table('imoveis', function (Blueprint $table) {
+            //
+        });
     }
 };

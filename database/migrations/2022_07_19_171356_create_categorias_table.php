@@ -13,8 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('imoveis', function (Blueprint $table) {
-            $table->tinyInteger('visibility',false);
+        Schema::create('categorias', function (Blueprint $table) {
+            $table->id();
+            $table->string('nome',155)->unique();
+            $table->timestamps();
         });
     }
 
@@ -25,8 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('imoveis', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('categorias');
     }
 };
