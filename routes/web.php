@@ -40,13 +40,13 @@ Route::middleware('auth')->group(function (){ //Middleware para autenticar o usu
             // Rota para mostrar o formulario de update do Imovel
             Route::get('/{id}/editar',[App\Http\Controllers\admin\ImovelController::class, 'edit'])->name('imoveis.edit');
             Route::put('/{id}/update',[App\Http\Controllers\admin\ImovelController::class, 'update'])->where('id', '[0-9]+')->name('imoveis.update');
-            
+
             // Rota para deletar um ímovel //=> No controller também será erxcluído as imagens da galeria
             Route::delete('/{id}/delete',[App\Http\Controllers\admin\ImovelController::class, 'destroy'])->where('id', '[0-9]+')->name('imoveis.destroy');
-            
+
             // Rota para alterar a visibilidade de um ímovel
             Route::put('/{id}/visibilidade',[App\Http\Controllers\admin\ImovelController::class, 'visibilidade'])->where('id', '[0-9]+')->name('imoveis.visibility');
-            
+
         });
 
         Route::prefix('cidades')->group(function(){
@@ -59,6 +59,10 @@ Route::middleware('auth')->group(function (){ //Middleware para autenticar o usu
             // Rotas para listar e Adicionar categorias no BD
             Route::get('/', [App\Http\Controllers\admin\CategoriaController::class, 'index'])->name('categorias.index');
             Route::post('/adicionar', [App\Http\Controllers\admin\CategoriaController::class, 'store'])->name('categorias.store');
+        });
+
+        Route::prefix('galeria')->group(function(){
+            Route::get('/{id}',[App\Http\Controllers\admin\GaleriaController::class, 'index'])->name('galeria');
         });
     });
 });

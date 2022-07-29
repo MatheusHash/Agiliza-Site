@@ -17,3 +17,12 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('/test', function (Request $request) {
+    return ['$msg' => 'mensagem'];
+});
+
+Route::get('/imoveis', [App\Http\Controllers\admin\ImovelController::class, 'testAPI']);
+
+// Route::get('/galeria', [App\Http\Controllers\admin\GaleriaController::class]);
+
