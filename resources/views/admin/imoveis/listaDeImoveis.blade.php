@@ -80,7 +80,6 @@
                                 @endif
                             </form>
 
-
                             <form action="{{route('imoveis.destroy', ['id'=>$imovel->id])}}" method="POST">
                                 @csrf
                                 @method('delete')
@@ -96,6 +95,9 @@
                 <hr style="padding: 5px">
             @endforeach
 
+            <div class="flex justify-center">
+                {{$imoveis->links()}}
+            </div>
         @else
             <p class="text-white flex justify-center p-5">
                 Nenhum imóvel cadastrado!!
