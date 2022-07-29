@@ -6,7 +6,9 @@
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('dashboard') }}">
-                        <x-application-logo class="block h-10 w-auto fill-current text-gray-600" />
+                        <div style="width: 10em; height: 3em;">
+                            <x-application-logo class="block h-10 w-auto fill-current text-gray-600" />
+                        </div>
                     </a>
                 </div>
 
@@ -18,11 +20,14 @@
                     <x-nav-link :href="route('imoveis.store.form')" :active="request()->routeIs('imoveis.store.form')">
                         {{ __('Inserir imovel') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('imoveis.show')" :active="request()->routeIs('imoveis.show')">
+                        {{ __('Listar Imoveis') }}
+                    </x-nav-link>
                     <x-nav-link :href="route('cidades.index')" :active="request()->routeIs('cidades.index')">
                         {{ __('Cidades') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('imoveis.show')" :active="request()->routeIs('imoveis.show')">
-                        {{ __('Listar Imoveis') }}
+                    <x-nav-link :href="route('categorias.index')" :active="request()->routeIs('categorias.index')">
+                        {{ __('Categorias') }}
                     </x-nav-link>
                 </div>
             </div>
