@@ -13,6 +13,10 @@ use Illuminate\Support\Facades\Storage;
 
 class ImovelController extends Controller
 {
+
+    public function testAPI(){
+        return Imovel::all();
+    }
     public function page(){
 
         // Passando as cidades para a view do formulario de adicionar Imovel
@@ -64,7 +68,7 @@ class ImovelController extends Controller
     }
 
     public function show(){
-        $imoveis = Imovel::all();
+        $imoveis = Imovel::paginate(10);
         $Galeria = Galeria::all()->where('principal',1);
         return view('admin/imoveis/listaDeImoveis', ['imoveis'=>$imoveis,'Galeria'=>$Galeria]);
     }
