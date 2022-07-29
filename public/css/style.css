@@ -1,12 +1,79 @@
+@font-face {
+    font-family: "Avenir black";
+    src: url("../fonts/AVENIR-BLACK-WEBFONT_0.TTF");
+    font-display: swap;
+}
+@font-face {
+    font-family: "Avenir light";
+    src: url("../fonts/AVENIR-LIGHT-WEBFONT_0.TTF");
+    font-display: swap;
+}
+@font-face {
+    font-family: "Avenir medium";
+    src: url("../fonts/AVENIR-MEDIUM-WEBFONT_0.TTF");
+    font-display: swap;
+}
+@font-face {
+    font-family: "Avenir medium-ob";
+    src: url("../fonts/AVENIR-MEDIUMOBLIQUE-WEBFONT_0.TTF");
+    font-display: swap;
+}
+@font-face {
+    font-family: "Avenir ob";
+    src: url("../fonts/AVENIR-OBLIQUE-WEBFONT_0.TTF");
+    font-display: swap;
+}
+@font-face {
+    font-family: "Avenir roman";
+    src: url("../fonts/AVENIR-ROMAN-WEBFONT_0.TTF");
+    font-display: swap;
+}
+
+
+
+
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'Avenir light', 'Avenir black';
+}
+
+body{
+    margin: 0 auto;
+    width: 100%;
+
+}
+
+
 /* Logo empresa - Agiliza imoveis */
 .agilizaimoveis-logo{
     max-width: 16em;
     min-width: 14em;
 }
 
+.image-header{
+    margin: 0 auto;
+    max-width: 100vw;
+    height: 100vh;
+    /* max-height: 80vh;
+    min-height: 80vh; */
+    background-size: cover;
+    background-position: center;
+    background-image: url('../imagens/IMOVEL.png');
+    background-repeat: no-repeat;
+}
+
 ul,li{
     list-style: none;
 }
+
+.text-bold{
+    font-weight: bold;
+}
+.text-white{
+    color: white;
+}
+
 .text-orange{
     color: #FF6702;
 }
@@ -23,28 +90,773 @@ ul,li{
 }
 
 .navbar{
+    
+    max-width: 100vw;
     color: white;
 }
 
 .container{
-    width: 95%;
-    margin: 0 auto;
+    margin-left: 40px;
+    margin-right: 40px;
 }
 
 .paragrafo{
     text-align: justify;
+    font-size: .9rem;
 }
 
-@media (min-width: 576px) {  }
+/* Forms */
+
+.header-titulo{
+    font-size: 2em;
+}
+
+.header-campos{
+    max-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.form-principal{
+    margin: 0 auto;
+    display: flex;
+    background-color: #ccc;
+    padding: 8px;
+}
+
+.select-form{
+    height: 45px;
+
+    border: none;
+    margin: 2px;
+    padding: .8em;
+    font-family: "Avenir medium";
+    font-weight: bold;
+    
+}
+
+
+.form-principal button{
+    width: 150px;
+    height: 45px;
+    margin: 2px;
+    padding: 10px;
+    font-family: "Avenir medium";
+    font-weight: bold;
+    border: none;
+}
+
+.form-codigo input::placeholder{
+    color: white;
+
+}
+.form-codigo input{
+    width: 120px;
+    height: 25px;
+
+    margin: 2px;
+    padding: 10px;
+
+    font-family: "Avenir medium";
+    font-weight: bold;
+
+
+    background-color: transparent;
+
+    border: solid .2px white;
+
+}
+
+/* SOBRE */
+
+#sobre{
+    padding: 2em 0;
+    
+    max-width: 100vw;
+    /* min-height: 100vh; */
+}
+
+#sobre .box{
+
+    margin-top: 1em;
+    margin-left: auto;
+    margin-right: auto;
+    
+    display: flex;
+}
+
+.image-sobre-definicoes{
+    max-height: 50em;
+    
+    width: 50%;
+    
+    margin-top: 1em;
+}
+
+.image-sobre{
+    max-height: 50em;
+    /* max-height: 85vh ; */
+    
+    width: 100%;    
+    border-radius: 0 0 0 2em;
+    object-fit: cover;
+}
+
+.box-sobre{
+    /* max-height: 95vh; */
+    max-width: 50%;
+    margin: 0 0 1em 1em;
+}
+
+.titulo-sobre{
+    font-size: 1.8rem;
+    margin: .2em 0 0 0;
+}
+
+.ler-mais{
+    margin: .7em 0 0 0;
+    border-radius: 2px;
+}
+
+.card-sobre{
+    display: flex;
+    flex-direction: row;
+    /* height: 20vh; */
+    margin: 1em 0 0 0; 
+}
+.titulo-card-sobre{
+    font-size: 1.5rem;
+}
+
+.box-icon{
+    min-width: 5em;
+    min-height: 5em;
+    max-height: 5em;
+    max-width: 5em;
+
+    margin: 5px;
+}
+
+.icon-sobre{
+    max-width: 5em;
+    padding: 1em;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Fim sobre */
+
+
+/* Areas de atuacao */
+
+#areas-atuacao{
+    padding-top: .5em;
+    min-height: 100vh;
+    background-color: black;
+}
+
+.box-area-atucao{
+    max-width: 100vw;
+    display: flex;
+    flex-direction: column;
+}
+
+.area-atuacao-text{
+    background-color: aquamarine;
+    max-width: 25em;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.titulo-areas-atuacao{
+    max-width: 30em;
+    
+    letter-spacing: 2px;
+    font-size: 2.2rem;
+}
+
+.sub-titulo-area-atuacao{
+    max-width: 30em;
+    text-align: justify;
+    font-size: 1.4rem;
+    margin: 0 auto;
+}
+
+.box-cards{
+    margin: 0 auto;
+    max-width: 100%;
+}
+
+.cards-area{
+    display: flex;
+    /* margin: 2em; */
+}
+.card-area-atuacao{
+    margin:0 auto;
+    max-width: 500px;
+    margin: 2em 0 0 2em ;
+}
+
+.card-box-area-atuacao{
+    max-width: 500px;
+}
+
+.image-card-area-atuacao{
+    padding: 5px;
+    border-radius: 5px;
+    background-color: #FF6702;
+}
+
+.card-box-area-atuacao img{
+    
+    object-fit: cover;
+    
+    border-radius: 7px;
+    width: 100%;
+    max-height: 10em;
+
+}
+
+.titulo-box-area{
+    color: black;
+    font-size: 1.2rem;
+    margin: 0 0 0 5px;
+    font-weight: bold;
+}
+
+.card-box-area-atuacao p{
+    padding: 10px;
+}
+
+
+.box-area-atucao .paragrafo{
+    text-align: center;
+}
+
+/* Fim Areas de atuacao */
+
+/* APRESENTACAO DA EQQUIPE  */
+
+
+#equipe{
+    padding-top: 2em;
+    max-width: 100vw;
+    min-height: 100vh;
+}
+
+.equipe-header{
+    padding: 1em;
+    display: flex;
+}
+
+.equipe-titulo{
+    font-weight: bold;
+    text-align: end;
+    font-size: 2.5rem;
+    padding-right: 2em;
+    margin-right: 2em;
+    border-right: solid 2px white;
+}
+
+.equipe-text{
+    text-align: left;
+    margin: 0 auto;
+    font-size: 1.8rem;
+}
+
+
+.titulo-equipes{
+    padding: 0 3em 0 3em;
+    text-align: end;
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+.img-perfil{
+    max-width: 200px;
+    max-height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto;
+    margin-top: -50px;
+
+}
+
+.perfil{
+
+    /* position: absolute; */
+    
+    text-align: center;    
+    
+    border-radius: 5px;
+
+    background-color: white;
+    width: 280px;
+
+}
+
+.membro{
+    width: 320px;
+    background-color: #FF6702;
+    text-align: center;
+    margin-top: 1.5em;
+    margin-left: -20px;
+    margin-bottom: 1em;
+}
+.nome-membro{
+    width: 210px;
+    font-size: 1.2rem;
+    margin: 0 auto;
+}
+
+.creci-membro{
+    margin: 0 auto;
+
+}
+/* FIM DA APRESENTACAO   */
+
+
+/* ANUNCIE */
+
+#anuncie{
+    max-width: 100vw;
+    min-height: 5em;
+    background-image: url('../imagens/PASSOS.png');
+    background-repeat: no-repeat;
+    background-size: center auto;
+}
+
+/* Fim anuncie */
+
+/* Celulares */
+@media screen and (max-width: 480px) { 
+    
+    .header-titulo{
+        font-size: .6rem;
+    }
+
+    .header-campos{
+        height: 200px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .form-principal{
+        margin: 0 auto;
+        /* display: flex; */
+        flex-direction: column;
+        background-color: #ccc;
+        padding: 4px;
+    }
+
+    #sobre .box{
+        max-width: 100%;
+        min-height: 100vh;
+        flex-direction: column;
+    }
+    
+    .box-sobre{
+        /* min-height: 95vh; */
+        max-width: 95%;
+        width: 95%;
+        margin: 2em 0 0 0;
+    }
+    
+    .image-sobre-definicoes{
+
+        max-height: 85vh;
+    
+        width: 100%;
+        /* min-width: 50%; */
+        
+        margin-top: 1em;
+    }
+    
+    .image-sobre{
+        /* max-width: 5em; */
+        min-width: 100%;
+        max-height: 22em;
+        min-height: 12em;
+        border-radius: 0 0 0 2em;
+        object-fit: cover;
+    }    
+
+    .titulo-sobre{
+        font-size: 1.2rem;
+        margin: .5em 0 0 1em 0;
+    }
+    
+    .card-sobre{
+        flex-direction: column;
+    }
+
+    .box-icon{
+        min-width: 6.25em;
+        max-width: 6.25em;
+        min-height: 6.25em;
+        max-height: 6.25em;
+    
+        margin: 5px;
+    }
+    
+    .icon-sobre{
+        padding: 1em;
+    }
+
+    /* Areas de Atuacao */
+    .area-atuacao-text{
+        max-width: 20em;
+        /* min-width: 17em; */
+        margin: 0 auto;
+        text-align: center;
+        /* padding: 0 12em 0 12em; */
+    }
+
+    .titulo-areas-atuacao{
+        letter-spacing: 1px;
+        font-size: .7rem;
+    }
+
+    .cards-area{
+        max-width: 360px;
+        min-width: 260px;
+        flex-direction: column;
+    }
+
+    .card-area-atuacao{
+        max-width: 360px;
+        min-width: 260px;
+        margin: 2em 0 0 2em ;
+    }
+
+    .image-card-area-atuacao{
+        max-width: 360px;
+    }
+
+    /* Fim Areas de atuacao */
+
+    .equipe-header{
+        padding: 1em;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .equipe-titulo{
+        font-weight: bold;
+        text-align: left;
+        font-size: 1.5rem;
+        padding-right: 1em;
+        margin-right: 1em;
+        border: none;
+    }
+
+    .equipe-text{
+        text-align: left;
+        margin: 0 auto;
+        font-size: .3rem;
+    }
+
+    .titulo-equipes{
+        margin-top: 1em;
+        /* padding: 0 1.5em 0 1.5em; */
+        text-align: left;
+        font-size: .1rem;
+        font-weight: bold;
+    }
+
+    /* FIM APRESENTACAO */
+}
 
 /* Dispositivos médios (tablets com 768px ou mais) */
-@media (min-width: 768px) {  }
+@media screen and (max-width: 768px) {  
+
+    .header-titulo{
+        font-size: 1rem;
+        text-align: center;
+    }
+
+    .header-campos{
+        height: 500px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .form-principal{
+        margin: 0 auto;
+        /* display: flex; */
+        flex-direction: column;
+        background-color: #ccc;
+        padding: 8px;
+    }
+    
+
+    #sobre .box{
+        max-width: 100%;
+        flex-direction: column;
+    }
+
+    .box-sobre{
+        /* max-height: 95vh; */
+        max-width: 95%;
+        width: 95%;
+        margin: 2em 0 0 0;
+    }
+
+    .card-sobre{
+        flex-direction: column;
+    }
+
+    .box-icon{
+        min-width: 6.25em;
+        min-height: 6.25em;
+        max-height: 6.25em;
+    
+        margin: 5px;
+    }
+    
+    .icon-sobre{
+        padding: 1em;
+    }
+
+    .card-sobre{
+        flex-direction: column;
+    }
+
+    .box-icon{
+        min-width: 4em;
+        min-height: 4em;
+        max-height: 4em;
+        max-width: 4em;
+        
+        margin: 0 auto;
+    }
+    
+    .icon-sobre{
+        padding: 1em;
+    }
+
+    .image-sobre-definicoes{
+        max-width: 80vw;
+        
+    }
+    
+    .image-sobre{
+        min-width: 100%;
+        /* height: 100%; */
+        /* min-height: 12em; */
+        border-radius: 0 0 0 1em;
+    }
+
+    /* Areas de atuacao */
+    .area-atuacao-text{
+        max-width: 100%;
+        /* min-width: 17em; */
+        margin: 0 auto;
+        text-align: center;
+        
+    }
+    .titulo-areas-atuacao{
+        letter-spacing: 1px;
+        font-size: .5rem;
+    }
+
+    .sub-titulo-area-atuacao{
+        text-align: start;
+        font-size: 1rem;
+        margin: 0 auto;
+        padding-bottom: 2em;
+    }
+
+    .cards-area{
+        margin: 0 auto;
+        max-width: 380px;
+        min-width: 280px;
+        margin: 1em;
+    }
+
+    .card-area-atuacao{
+        max-width: 400px;
+        min-width: 300px;
+        margin: 1em;
+    }
+
+    .image-card-area-atuacao{
+        max-width: 360px;
+    }
+    /* Fim Areas de atuacao */
+
+
+
+    .equipe-header{
+        padding: 1em;
+        display: flex;
+    }
+    
+    .equipe-titulo{
+        font-weight: bold;
+        text-align: end;
+        font-size: 2rem;
+        padding-right: 1em;
+        margin-right: 1em;
+        border-right: solid 1.5px white;
+    }
+    
+    .equipe-text{
+        text-align: left;
+        margin: 0 auto;
+        font-size: 1.5rem;
+    }
+
+    .titulo-equipes{
+        margin-top: 1em;
+        padding: 0 3em 0 3em;
+        text-align: end;
+        font-size: 1.8rem;
+        font-weight: bold;
+    }
+    /* FIM DA APRESENTACAO   */
+
+}
 
 /* Dispositivos large (desktops com 992px ou mais) */
-@media (min-width: 992px) {  }
+@media screen and (max-width: 992px) { 
+
+    .header-titulo{
+        font-size: 2rem;
+    }
+
+    .header-campos{
+        height: 500px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .form-principal{
+        margin: 0 auto;
+        /* display: flex; */
+        flex-direction: column;
+        background-color: #ccc;
+        padding: 8px;
+    }
+
+    #sobre .box{
+        max-width: 100%;
+        flex-direction: column;
+    }
+
+    .box-sobre{
+        /* max-height: 95vh; */
+        max-width: 95%;
+        width: 95%;
+        margin: 2em 0 0 0;
+    }
+    
+    .card-sobre{
+        flex-direction: column;
+    }
+
+    .box-icon{
+        min-width: 4em;
+        min-height: 4em;
+        max-height: 4em;
+    
+        margin: 5px;
+    }
+    
+    .icon-sobre{
+        padding: 1em;
+    }
+
+    .card-sobre{
+        flex-direction: column;
+    }
+
+    .box-icon{
+        min-width: 6.25em;
+        min-height: 6.25em;
+        max-height: 6.25em;
+        max-width: 6.25em;
+        
+        margin: 0 auto;
+    }
+    
+    .icon-sobre{
+        padding: 1em;
+    }
+
+    .image-sobre-definicoes{
+        margin: 0 auto;
+
+        max-width: 50%;
+        max-height: 50vh;
+        /* min-width: 20em; */
+        /* min-height: 50vh; */
+    }
+    .image-sobre{
+        max-height: 50vh;
+        /* min-width: 20em; */
+        /* min-height: 50vh; */
+        border-radius: 0 0 0 2em;
+    }
+    
+    /* Areas de atuacao */
+    #areas-atuacao{
+
+        padding-top: .5em;
+
+        /* min-height: 100vh; */
+
+        background-color: black;
+    }
+
+    .area-atuacao-text{
+        max-width: 36em;
+        min-width: 20em;
+        margin: 0 auto;
+        text-align: center;
+        /* padding: 0 12em 0 12em; */
+    }
+    .titulo-areas-atuacao{
+        letter-spacing: 1.8px;
+        font-size: 1.5rem;
+    }
+
+    .cards-area{
+        max-width: 400px;
+        min-width: 300px;
+        flex-direction: column;
+    }
+
+    .card-area-atuacao{
+        max-width: 400px;
+        min-width: 300px;
+        margin: 2em 0 0 2em ;
+    }
+    
+
+    .sub-titulo-area-atuacao{
+        text-align: justify;
+        font-size: 1.2rem;
+        margin: 0 auto;
+        padding-bottom: 2em;
+    }
+
+    .image-card-area-atuacao{
+        max-width: 360px;
+    }
+    /* Fim Areas de atuacao */
+    
+}
 
 /* Dispositivos extra large (desktops grandes com 1200px ou mais) */
-@media (min-width: 1200px) {  
+@media screen and (max-width: 1200px) {  
     .list-nav-link{
         margin: 0 auto;
         display: flex;
@@ -70,11 +882,22 @@ ul,li{
     }
 
     .campos-do-form{
+        display: flex;
         background-color: #ccc;
+        opacity: 1;
         padding: .3em .8em;
     }
 
     .ajustar-tam-tela{
         height: 80vw;
     }
+
+    /* Areas de atuação */
+    
+    
+    .box-area-atucao{
+        max-width: 100vw;
+    }
+
+    /* Fim Areas de atuacao */
 }
