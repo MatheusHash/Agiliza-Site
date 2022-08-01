@@ -46,7 +46,14 @@ Route::middleware('auth')->group(function (){ //Middleware para autenticar o usu
 
             // Rota para alterar a visibilidade de um ímovel
             Route::put('/{id}/visibilidade',[App\Http\Controllers\admin\ImovelController::class, 'visibilidade'])->where('id', '[0-9]+')->name('imoveis.visibility');
+            
 
+            //rotas da galeria
+            Route::prefix('galeria')->group(function(){
+                Route::get('/{idImovel}',[App\Http\Controllers\admin\GaleriaController::class, 'index'])->name('galeria');
+                Route::delete('deletarImagem/{idImagem}',[App\Http\Controllers\admin\GaleriaController::class, 'destroy'])->name('imagem.destroy');
+                Route::put('novaImagemPrincipal/{idImovel}',[App\Http\Controllers\admin\GaleriaController::class, 'novaImagemCapa'])->name('imagemCapa.update');
+            });
         });
 
         Route::prefix('cidades')->group(function(){
@@ -61,9 +68,6 @@ Route::middleware('auth')->group(function (){ //Middleware para autenticar o usu
             Route::post('/adicionar', [App\Http\Controllers\admin\CategoriaController::class, 'store'])->name('categorias.store');
         });
 
-        Route::prefix('galeria')->group(function(){
-            Route::get('/{id}',[App\Http\Controllers\admin\GaleriaController::class, 'index'])->name('galeria');
-        });
     });
 });
 
