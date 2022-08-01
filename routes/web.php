@@ -6,9 +6,9 @@ use Illuminate\Support\Facades\Route;
  * Rotas Controllers
  * */
 Route::get('/',       [\App\Http\Controllers\HomeController::class,  'index'])->name('home');
-Route::get('/alugar', [\App\Http\Controllers\AlugaController::class, 'index'])->name('alugar');
-Route::get('/vender', [\App\Http\Controllers\VendeController::class, 'index'])->name('vender');
-Route::get('/alto-padrao', [\App\Http\Controllers\AltoPadraoController::class, 'index'])->name('alto-padrao');
+Route::get('/alugar', [\App\Http\Controllers\HomeController::class, 'alugar'])->name('alugar');
+Route::get('/comprar', [\App\Http\Controllers\HomeController::class, 'vender'])->name('vender');
+Route::get('/imovel', [\App\Http\Controllers\HomeController::class, 'imovel'])->name('imovel');
 
 /*
  * Fim das rotas Controllers
