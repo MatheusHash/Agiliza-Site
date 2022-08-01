@@ -12,12 +12,11 @@
 </ul>
 @endif
 
-<h2 class="flex justify-center"> <span class="text-bold"> Editar Imovel: </span> <br>{{ $imovel->titulo }} <br> Código {{$imovel->id}}</h2>
 <section class="bg-indigo-50 flex justify-center">
         
         <div class="grid grid-cols-1">
             <div class="w-auto py-12" style="width: 720px">
-                <h1 class="text-center text-gray-600">Editar imovel: {{ $imovel->id }}</h1>
+                <h1 class="text-center text-gray-600">Editar imovel: #{{ $imovel->id }}</h1>
 
                 <form class="text-gray-600" method="post" action=" {{route( 'imoveis.update', $imovel->id )}} ">
                     @method('put')
@@ -40,13 +39,7 @@
                         </div>
                     </div>
 
-{{--                    Imagens --}}
-                    {{-- <div class="mb-4">
-                        <label for="imagens" class="block text-sm font-medium text-gray-700">Escolha as melhores imagens do Imovel</label>
-                        <div class="mt-1 relative rounded-md shadow-sm">
-                            <input type="file" name="imagens" id="imagens" class="focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-7 pr-12 sm:text-sm border-gray-300 rounded-md" multiple>
-                        </div>
-                    </div> --}}
+
                     {{--Endereco --}}
                     <div class="mb-4">
                         <label for="endereco" class="block text-sm font-medium text-gray-700">Endereço</label>

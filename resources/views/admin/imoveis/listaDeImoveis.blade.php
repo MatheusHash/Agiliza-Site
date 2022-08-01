@@ -2,7 +2,7 @@
 
 @section('content')
 
-<section  class="bg-indigo-100">
+<section>
     {{-- {{$imoveis}} --}}
 
     {{-- @php
@@ -10,7 +10,7 @@
     @endphp --}}
 
 
-    <section class="section-lista-imoveis" >
+    <section class="bg-gray-800" >
 
 
         @if(count($imoveis))
@@ -20,7 +20,7 @@
                     <div>
                         <div class="flex">
                             <h1 class="titulo-imovel">{{$imovel->titulo}} </h1>
-                            <span class="ml-3">#Cod: {{$imovel->id}}</span>
+                            <span class="ml-3 text-gray-500">#Cod: {{$imovel->id}}</span>
                         </div>
                         <hr class="w-full mb-4">
                     </div>
@@ -36,19 +36,19 @@
 
                         <div class="ml-3 detalhes-imovel">
                             <div>
-                                <h3 class="mb-4">Valor:</h3>
+                                <h3 class="mb-4 text-gray-400">Valor:</h3>
                                 <span class="text-white">R$ {{$imovel->valor}}</span>
                             </div>
                             <hr class="w-full mb-4">
                             <div >
-                                <h3 >Descrição:</h3>
+                                <h3 class="text-gray-400">Descrição:</h3>
                                 <span class="text-white">
                                     {{$imovel->descricao}}
                                 </span>
                             </div>
                             <hr class="w-full mb-4">
                             <div>
-                                <h3 >Endereço:</h3>
+                                <h3 class="text-gray-400">Endereço:</h3>
                                 <span class="text-white">{{$imovel->endereco}}</span>
                             </div>
                         </div>
@@ -62,6 +62,11 @@
                             <a href="{{route('imoveis.edit', $imovel->id)}}">
                                 <x-button class="ml-3 mb-4 btn btn-amarelo">
                                     {{__('Editar')}}
+                                </x-button>
+                            </a>
+                            <a href="{{route('galeria', $imovel->id)}}">
+                                <x-button class="ml-3 mb-4 btn btn-azul">
+                                    {{__('Galeria')}}
                                 </x-button>
                             </a>
 
