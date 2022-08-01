@@ -5,6 +5,7 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Galeria;
+use Illuminate\Support\Facades\Storage;
 
 
 class GaleriaController extends Controller
@@ -49,9 +50,25 @@ class GaleriaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function novaImagemCapa(Request $request, $idImovel)
     {
-        //
+        $dataForm = $request->all();
+        // dd($dataForm);
+
+        $atual = Galeria::where([['imovel_id',$dataForm['idImovel']], ['principal',1]]);
+        $atual->update(['principal'=>0]);
+
+        $novaCapa = Galeria::where('id',$dataForm['idImagem']);
+        $novaCapa->update(['principal'=>1]);
+        // dd($request->all(), $idImovel, Galeria::where([['imovel_id',$idImovel], ['principal',1]]));
+
+        // dd($atual);
+
+
+        // // $novaCapa= Gleria::where('id', $id);
+        // // $novaCapa->principal = 1;
+        // $novaCapa->update();
+        return back();
     }
 
     /**
@@ -60,8 +77,10 @@ class GaleriaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id, Request $request)
     {
-        //
+        $imagem = Galeria::where('id',$id)->delete();
+        Storage::delete( $request->all('path') );
+        return back();
     }
 }
